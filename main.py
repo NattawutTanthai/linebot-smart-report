@@ -41,7 +41,7 @@ async def Main(request: Request):
         # if not isinstance(event.message, TextMessage):
         #     continue
 
-    print("type====>",events.message.type)
+    # print("type====>",events.message.type)
     match events.message.type :
         case "text":
             if events.message.text == "แจ้งปัญหา":
