@@ -10,7 +10,7 @@ from linebot.models import (
     QuickReply, 
     QuickReplyButton
 )
-from func import function 
+from func import Function 
 
 channel_secret = os.getenv('LINE_CHANNEL_SECRET','9433d2b91e6522e1c271aac0d08ba4bc')
 channel_access_token = os.getenv('LINE_CHANNEL_ACCESS_TOKEN', 'IOGdPaM84/wtqPzo4J1C+SMCnk5ElyaeAEnFgXIGm7tp2/8Po3Hxgm+5hhtgRxLU7f+B94PT/JWpEiB8Usyk5HGZnKbZ+bOHLgXoGqCbKxYXSH+GB5zeECSE7m/addT62gZ6qehEHWqfEO0VQ2u5KwdB04t89/1O/w1cDnyilFU=')
@@ -75,6 +75,10 @@ async def Main(request: Request):
 
         #ถ้่าผู้ใช้ส่งมาเป็น Type Location         
         elif e.message.type == 'location' :
+            print("Lat==>" , e.message.latitude)
+            print("Log=>" , e.message.longitude)
+            print("add==>" , e.message.address)
+            Function.addLocation(e.message.latitude,e.message.longitude,e.message.address)
             text_message = TextSendMessage("location")
 
 
